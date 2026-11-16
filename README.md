@@ -83,7 +83,9 @@ projet_logiciel/
 ## 👥 Auteurs
 
 - Karim Glelah
-- *(ajouter les autres membres de l'équipe)*
+- Nathan Carton
+- Mohamed Hashem
+- Tayeb Arroub
 
 ---
 
