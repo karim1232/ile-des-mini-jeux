@@ -75,6 +75,11 @@ assets/                # cartes, sprites, musiques
 saves/                 # sauvegardes des joueurs
 ```
 
+## 📄 Documents
+
+- [Rapport du projet](docs/rapport.pdf) : conception, organisation de l'équipe, difficultés et résultats
+- [Diagramme de Gantt](docs/diagramme_gantt.xlsx) : planning des tâches et répartition du travail
+
 ## 👥 Auteurs
 
 - Karim Glelah
