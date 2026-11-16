@@ -16,7 +16,7 @@ Structure du fichier de sauvegarde :
 import json, os
 
 SAVE_DIR      = "saves"
-SCORES_KEYS   = ("tetris", "pacman", "snake", "space")
+SCORES_KEYS   = ("tetris", "pacman", "snake", "space", "breakout")
 DEFAULT_SCORES = {k: 0 for k in SCORES_KEYS}
 
 # Skins disponibles : (id, chemin relatif spritesheet marche, chemin vélo)

@@ -44,6 +44,7 @@ LABELS_JEUX = {
     "pacman": "PAC-MAN a la playa",
     "snake":  "SNAKE de plage",
     "space":  "PLAGE invaders",
+    "breakout": "CASSE-NOIX de coco"
 }
 
 

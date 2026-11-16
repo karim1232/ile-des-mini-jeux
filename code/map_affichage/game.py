@@ -10,6 +10,7 @@ from jeux.tetris import Tetris
 from jeux.pacman import Pacman
 from jeux.snake import SnakeNeon
 from jeux.space_invader import SpaceInvaders
+from jeux.breakout import Breakout
 from save_manager import write_save, skin_by_id
 from entity import Entity, MODE_WALK, MODE_BIKE, MODE_RUN, MODE_SURF
 import json, os
@@ -38,8 +39,8 @@ REGISTRE_JEUX = {
     "pacman": {"class": Pacman, "label": "Pac-Man a la playa", "color": (255, 215, 0)},
     "snake": {"class": SnakeNeon, "label": "Snake de plage", "color": (0, 170, 80)},
     "space": {"class": SpaceInvaders, "label": "Plage invaders", "color": (35, 80, 200)},
+    "breakout": {"class": Breakout, "label": "Breakout", "color": (255, 0, 0)},
 }
-
 # liste des jeux qui ont besoin du dt (delta time) pour pas tourner a 2000 fps
 NEEDS_DT = {"tetris", "snake", "space"}
 
@@ -49,6 +50,7 @@ ZIK = {
     "pacman": "assets/music/pacman.ogg",
     "snake": "assets/music/snake.ogg",
     "space": "assets/music/space.ogg",
+    "breakout": "assets/music/map.ogg"
 }
 
 
@@ -375,3 +377,6 @@ class Game:
 
         elif gid == "space":
             if ev.key == pygame.K_SPACE: g.shoot()
+        elif gid == "breakout":
+            if ev.key == pygame.K_LEFT:  g.set_dir(-1)
+            if ev.key == pygame.K_RIGHT: g.set_dir(1)
