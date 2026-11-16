@@ -78,4 +78,6 @@ saves/                 # sauvegardes des joueurs
 ## 👥 Auteurs
 
 - Karim Glelah
-- *(ajoute ici les autres membres de l'équipe)*
+- Nathan Carton
+- Mohamed Hashem
+- Tayeb Arroub
