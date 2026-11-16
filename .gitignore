@@ -1,7 +1,6 @@
 # Python
 __pycache__/
 *.pyc
-*.pyo
 venv/
 .venv/
 
@@ -13,3 +12,9 @@ venv/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Fichiers de travail (pas du code du jeu)
+Claude outputs/
+
+# Données Pokémon non utilisées par le code
+assets/json/

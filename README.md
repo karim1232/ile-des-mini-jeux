@@ -1,22 +1,32 @@
 # 🏝️ L'île des mini-jeux
 
-Jeu 2D en **Python / Pygame** réalisé dans le cadre du projet logiciel de 3A à Polytech Grenoble.
-
-Le joueur explore une île en vue du dessus (style Pokémon), se déplace à pied, en courant, à vélo ou en surf, et lance des **mini-jeux d'arcade** en s'approchant des bornes réparties sur la carte. Les meilleurs scores sont enregistrés dans des sauvegardes.
+Jeu 2D en **Python / Pygame** : on explore une île en vue de dessus et on lance des **mini-jeux d'arcade** depuis des bornes réparties sur la carte. Chaque partie est sauvegardée avec la position du joueur et ses meilleurs scores.
 
 ## ✨ Fonctionnalités
 
-- **Menu principal** : créer une partie (nom + choix du skin), charger une sauvegarde
-- **Exploration** d'une carte réalisée avec Tiled (`.tmx`), avec collisions, zones d'eau et changements de zone (maison, labo, Pokécenter, boutique…)
-- **4 modes de déplacement** : marche, course, vélo, surf
-- **5 mini-jeux** intégrés :
-  - Tetris
-  - Pac-Man
-  - Snake
-  - Space Invaders
-  - Breakout
-- **Sauvegardes JSON** : position, carte, skin et meilleurs scores par jeu
-- Musiques par écran et transitions en fondu entre la carte et les mini-jeux
+**Menu principal**
+- Créer une partie (pseudo + choix du personnage) ou charger une sauvegarde existante
+- Fond animé (soleil, palmiers, vagues) et musique
+
+**Exploration**
+- Cartes créées avec **Tiled** (`.tmx`), affichées avec `pyscroll` (caméra qui suit le joueur)
+- Collisions, zones d'eau et **passages entre les cartes** (maison, laboratoire, centre, boutique…)
+- **4 modes de déplacement** avec leurs propres animations : marche, course, vélo, surf (seulement sur l'eau)
+- Menu en jeu : meilleurs scores, sauvegarde, retour au menu principal
+
+**5 mini-jeux**, chacun dans une console d'arcade à l'écran :
+
+| Jeu | Particularités |
+|---|---|
+| **Tetris** | Pièce fantôme, niveaux qui accélèrent, score selon le nombre de lignes |
+| **Pac-Man** | Fantômes, super-pastilles pour les manger |
+| **Snake** | Murs, bonus clignotants à attraper |
+| **Space Invaders** | Ennemis qui accélèrent à chaque niveau, bunkers, boss |
+| **Breakout** | Briques générées, effets de particules |
+
+**Autres**
+- Sauvegardes en **JSON** (position, carte, personnage, meilleur score par jeu)
+- Notifications animées, transitions en fondu entre la carte et les jeux, une musique par écran
 
 ## 🎮 Commandes
 
@@ -24,16 +34,15 @@ Le joueur explore une île en vue du dessus (style Pokémon), se déplace à pie
 |---|---|
 | Flèches | Se déplacer / jouer |
 | `E` | Lancer le mini-jeu à proximité |
-| `R` | Courir |
-| `B` | Vélo |
-| `S` | Surfer (sur l'eau) |
-| `M` | Ouvrir / fermer le menu en jeu (scores, retour au menu) |
+| `R` / `B` / `S` | Courir / vélo / surf |
+| `M` | Ouvrir le menu en jeu |
 | `Échap` | Quitter un mini-jeu |
-| `Espace` | Tirer (Space Invaders) / action |
+| `Espace` | Tirer (Space Invaders), lancer la balle (Breakout), faire tomber la pièce d'un coup (Tetris) |
+| `↑` (Tetris) | Faire tourner la pièce |
 
 ## 🚀 Lancer le jeu
 
-**Prérequis :** Python 3.11+
+Il faut **Python 3.11 ou plus**.
 
 ```bash
 pip install pygame pytmx pyscroll
@@ -50,41 +59,23 @@ python code/map_affichage/main.py
 PYTHONPATH=code:code/map_affichage python3 code/map_affichage/main.py
 ```
 
-> Il faut lancer le jeu depuis la racine du projet, car les assets sont chargés en chemins relatifs (`assets/...`).
-
 ## 📁 Structure
 
 ```
-projet_logiciel/
-├── code/
-│   ├── map_affichage/   # moteur principal : menu, boucle de jeu, carte, joueur, sauvegardes
-│   │   ├── main.py      # point d'entrée
-│   │   ├── game.py      # boucle de jeu + gestion des mini-jeux
-│   │   ├── menu.py      # menu principal
-│   │   ├── map.py       # chargement des cartes Tiled
-│   │   ├── player.py    # joueur, modes de déplacement, menu en jeu
-│   │   └── save_manager.py
-│   └── jeux/            # mini-jeux (tetris, pacman, snake, space_invader, breakout)
-├── assets/
-│   ├── map/             # cartes .tmx + tilesets
-│   ├── sprite/          # sprites du joueur
-│   ├── music/           # musiques
-│   └── json/            # données (pokémon, attaques, talents)
-└── saves/               # sauvegardes des joueurs (.json)
+code/
+├── map_affichage/     # moteur : menu, boucle de jeu, cartes, joueur, sauvegardes
+│   ├── main.py        # point d'entrée
+│   ├── game.py        # boucle principale, gestion des mini-jeux
+│   ├── menu.py        # menu principal
+│   ├── map.py         # chargement des cartes Tiled
+│   ├── player.py      # joueur, déplacements, menu en jeu
+│   └── save_manager.py
+└── jeux/              # les 5 mini-jeux + thème graphique + notifications
+assets/                # cartes, sprites, musiques
+saves/                 # sauvegardes des joueurs
 ```
-
-## 🛠️ Technologies
-
-- Python
-- Pygame
-- PyTMX + Pyscroll (rendu des cartes Tiled)
-- JSON (sauvegardes)
 
 ## 👥 Auteurs
 
 - Karim Glelah
-- *(ajouter les autres membres de l'équipe)*
-
----
-
-*Projet scolaire — les sprites, musiques et données inspirés de Pokémon appartiennent à leurs ayants droit respectifs et sont utilisés à des fins pédagogiques uniquement.*
+- *(ajoute ici les autres membres de l'équipe)*
